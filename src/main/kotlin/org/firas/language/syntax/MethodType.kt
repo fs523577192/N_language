@@ -1,11 +1,9 @@
 package org.firas.language.syntax
 
-/**
- *
- */
-enum class ClassVariableType(val value: String) {
+enum class MethodType(val value: String) {
 
     STATIC("static"),
+    ABSTRACT("abstract"),
     NORMAL(""),
     SEALED("sealed")
 }

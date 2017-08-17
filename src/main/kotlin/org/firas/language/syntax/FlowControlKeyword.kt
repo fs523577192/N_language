@@ -1,4 +1,4 @@
-package org.firas.language
+package org.firas.language.syntax
 
 /**
  *
