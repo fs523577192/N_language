@@ -4,8 +4,8 @@ package org.firas.language.syntax
  *
  */
 class ClassWithParam(
-        cls: MyClass,
-        parameters: Map<TypeParameter, MyType>
+        val cls: MyClass,
+        val parameters: Map<TypeParameter, MyType>
 ) {
     init {
         parameters.keys

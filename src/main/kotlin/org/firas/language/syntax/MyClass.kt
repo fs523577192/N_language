@@ -270,5 +270,14 @@ class MyClass(
         if (type == ClassType.INTERFACE && null != base) {
             throw IllegalStateException("An interface cannot extend a class")
         }
+
+        if (null != base) {
+            if (base.cls.type == ClassType.INTERFACE) {
+                throw IllegalStateException("\"implements\" should be used with an interface instead of \"extends\"")
+            }
+            if (base.cls.type == ClassType.SEALED) {
+                throw IllegalStateException(base.cls.name + " is sealed and therefore cannot be inherited")
+            }
+        }
     }
 }
