@@ -38,15 +38,24 @@ class Bracket {
     }
 
     private var stack = CharArray(10)
-    private var top = 0
+    private var top = -1
 
-    fun add(bracket: Char) {
-        stack[top] = bracket
+    fun add(bracket: Char): Boolean {
+        if (!MAP.containsKey(bracket)) {
+            return false
+        }
         top += 1
         ensureCapacity()
+        stack[top] = bracket
+        return true
     }
 
     fun match(bracket: Char): Boolean {
+        if (top < 0) return false
+        if (stack[top].equals(REVERSE_MAP.get(bracket))) {
+            top -= 1
+            return true
+        }
         return false
     }
 
